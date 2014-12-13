@@ -1,0 +1,5 @@
+Revision history for Pod-Weaver-Section-ANSITable-BorderStyles
+
+0.01    2014-12-13 (PERLANCAR) (unreleased)
+
+        - First release, moved code from weaver.ini (using Eval, yikes).
