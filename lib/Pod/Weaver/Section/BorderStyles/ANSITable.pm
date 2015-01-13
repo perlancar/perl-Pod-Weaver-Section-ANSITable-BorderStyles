@@ -1,10 +1,11 @@
-package Pod::Weaver::Section::ANSITable::BorderStyles;
+package Pod::Weaver::Section::BorderStyles::ANSITable;
 
 # DATE
 # VERSION
 
 use 5.010001;
 use Moose;
+with 'Pod::Weaver::Role::AddTextToSection';
 with 'Pod::Weaver::Role::Section';
 
 use List::Util qw(first);
@@ -32,11 +33,10 @@ sub weave_section {
     require $pkg_p;
     require Text::ANSITable;
 
-    my $text;
+    my $text = "Below are the border styles included in this package:\n\n";
     {
         no strict 'refs';
         my $border_styles = \%{"$pkg\::border_styles"};
-        $text = "";
         for my $style (sort keys %$border_styles) {
             my $spec = $border_styles->{$style};
             $text .= "=head2 $short_pkg\::$style\n\n";
@@ -68,21 +68,12 @@ sub weave_section {
         }
     }
 
-    $document->children->push(
-        Pod::Elemental::Element::Nested->new({
-            command  => 'head1',
-            content  => 'INCLUDED BORDER STYLES',
-            children => [
-                map { Pod::Elemental::Element::Pod5::Ordinary->new({ content => $_ })} split /\n\n/, $text
-            ],
-        }),
-    );
-    $self->log(["Inserted INCLUDED BORDER STYLES POD section to file %s", $filename]);
+    $self->add_text_to_section($document, $text, 'BORDER STYLES');
 }
 
 no Moose;
 1;
-# ABSTRACT: Add an INCLUDED BORDER STYLES section for ANSITable BorderStyle module
+# ABSTRACT: Add a BORDER STYLES section for ANSITable BorderStyle module
 
 =for Pod::Coverage weave_section
 
@@ -90,7 +81,7 @@ no Moose;
 
 In your C<weaver.ini>:
 
- [ANSITable::BorderStyles]
+ [BorderStyles::ANSITable]
 
 
 =head1 DESCRIPTION
