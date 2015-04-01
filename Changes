@@ -1,5 +1,12 @@
 Revision history for Pod-Weaver-Section-BorderStyles-ANSITable
 
+0.03    2015-04-01 (PERLANCAR)
+
+	- No functional changes.
+
+	- Remove Moose::Autobox.
+
+
 0.02    2015-01-13 (PERLANCAR)
 
 	- Rename module/dist from PWS::ANSITable::BorderStyles to
