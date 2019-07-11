@@ -1,17 +1,17 @@
-0.03    2015-04-01 (PERLANCAR)
+0.03    2015-04-01  Released-By: PERLANCAR
 
 	- No functional changes.
 
 	- Remove Moose::Autobox.
 
 
-0.02    2015-01-13 (PERLANCAR)
+0.02    2015-01-13  Released-By: PERLANCAR
 
 	- Rename module/dist from PWS::ANSITable::BorderStyles to
 	  PWS::BorderStyles::ANSITable (to be consistent); use
 	  PWR::AddTextToSection.
 
 
-0.01    2014-12-13 (PERLANCAR)
+0.01    2014-12-13  Released-By: PERLANCAR
 
         - First release, moved code from weaver.ini (using Eval, yikes).
